@@ -1,0 +1,32 @@
+#!/bin/bash
+set -eux
+
+env
+
+VNC_APPLICATION_DIR=$CONDA_DIR/vnc
+mkdir $VNC_APPLICATION_DIR
+pushd $VNC_APPLICATION_DIR
+
+export novnc_version=1.1.0
+
+curl -sSfL https://github.com/novnc/noVNC/archive/v${novnc_version}.tar.gz | tar -zxf -
+chmod a+rX -R ${VNC_APPLICATION_DIR}/noVNC-${novnc_version}
+
+export tigervnc_version=1.9.0
+
+curl -sSfL https://sourceforge.net/projects/tigervnc/files/stable/${tigervnc_version}/tigervnc-${tigervnc_version}.x86_64.tar.gz/download | tar -zxf - --strip=2
+
+# Add desktop icons
+
+cp Git-GUI.desktop /home/jovyan/Desktop/
+chmod +x /home/jovyan/Desktop/Git-GUI.desktop
+
+cp gitk.desktop /home/jovyan/Desktop/
+cp .git_icon.png /home/jovyan/Desktop/
+chmod +x /home/jovyan/Desktop/gitk.desktop
+
+conda install jupyter-server-proxy numpy websockify -c conda-forge \
+    && jupyter labextension install @jupyterlab/server-proxy \
+    && conda clean -y --all
+    
+cp jupyter_notebook_config.py /home/jovyan/.jupyter/jupyter_notebook_config.py
