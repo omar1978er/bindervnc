@@ -25,7 +25,7 @@ cp vnc_lite.html ${VNC_APPLICATION_DIR}/
 sed -i.bak \
     -e "s%\('path', 'websockify'\)%'path', window.location.pathname.replace(/[^/]*$/, '').substring(1) + 'websockify'); console.log('websockify path:' + path%" \
     -re "s%rfb.scaleViewport = .+%rfb.resizeSession = readQueryVariable('resize', true);%" \
-    ${VNC_APPLICATION_DIR}/noVN-${novnc_version}/vnc_lite.html
+    ${VNC_APPLICATION_DIR}/vnc_lite.html
 
 curl -sSfL https://sourceforge.net/projects/tigervnc/files/stable/${tigervnc_version}/tigervnc-${tigervnc_version}.x86_64.tar.gz/download | tar -zxf - --strip=2
 
