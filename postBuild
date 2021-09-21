@@ -41,5 +41,6 @@ chmod +x /home/jovyan/Desktop/gitk.desktop
 conda install jupyter-server-proxy numpy websockify -c conda-forge \
     && jupyter labextension install @jupyterlab/server-proxy \
     && conda clean -y --all
+pip install jupyter-desktop-server
     
 cp jupyter_notebook_config.py /home/jovyan/.jupyter/jupyter_notebook_config.py
