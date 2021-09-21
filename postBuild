@@ -17,6 +17,7 @@ cd ~
 echo "$(ls)"
 pwd
 mkdir Desktop
+mkdir .jupyter
 
 curl -sSfL https://sourceforge.net/projects/tigervnc/files/stable/${tigervnc_version}/tigervnc-${tigervnc_version}.x86_64.tar.gz/download | tar -zxf - --strip=2
 
