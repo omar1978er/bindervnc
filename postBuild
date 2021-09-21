@@ -14,6 +14,8 @@ chmod a+rX -R ${VNC_APPLICATION_DIR}/noVNC-${novnc_version}
 
 export tigervnc_version=1.9.0
 cd ~
+ls
+pwd
 
 curl -sSfL https://sourceforge.net/projects/tigervnc/files/stable/${tigervnc_version}/tigervnc-${tigervnc_version}.x86_64.tar.gz/download | tar -zxf - --strip=2
 
