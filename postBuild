@@ -20,7 +20,7 @@ pwd
 mkdir Desktop
 mkdir .jupyter
 
-cp vnc_lite.html ${VNC_APPLICATION_DIR}/noVN-${novnc_version}/
+cp vnc_lite.html ${VNC_APPLICATION_DIR}/
 # Patch novnc to use correct path to websockify (defaults to /)
 sed -i.bak \
     -e "s%\('path', 'websockify'\)%'path', window.location.pathname.replace(/[^/]*$/, '').substring(1) + 'websockify'); console.log('websockify path:' + path%" \
