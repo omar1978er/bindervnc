@@ -16,3 +16,5 @@ emacs
 curl
 libqt5x11extras5-dev
 libxcb-xinerama0
+wget
+git
